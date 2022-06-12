@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace ConsoleApp1_Home_Work_laptop_
 {
     /// <summary>
-    /// Класс описывающий ноутбуки
+    /// Класс описывающий телефон
     /// </summary>
-    class Laptop
+    class Phone
     {
         string name;
         string manufacturer;
         int price;
+
         public string Name
         {
             get { return name; }
@@ -27,9 +28,9 @@ namespace ConsoleApp1_Home_Work_laptop_
         public int Price
         {
             get { return price; }
-            set 
+            set
             {
-                if (value>=1) 
+                if (value >= 1)
                 {
                     price = value;
                 }
@@ -41,16 +42,16 @@ namespace ConsoleApp1_Home_Work_laptop_
             }
         }
         /// <summary>
-        /// конструктор с параметрами
+        /// Конструктор с параметрами
         /// </summary>
-        /// <param name="name">Наименование модели лэптопа</param>
-        /// <param name="manufacturer">наименование производителя</param>
+        /// <param name="name">Модель телефона</param>
+        /// <param name="manufacturer">производитель</param>
         /// <param name="price">цена</param>
-        public Laptop(string name, string manufacturer, int price)
+        public Phone(string name, string manufacturer, int price)
         {
             this.name = name;
             this.manufacturer = manufacturer;
-            if(price>=1)
+            if (price >= 1)
             {
                 this.price = price;
             }
@@ -61,17 +62,20 @@ namespace ConsoleApp1_Home_Work_laptop_
             }
         }
         /// <summary>
-        /// Конструктор по умолчанию
+        /// Конструктор п оумолчанию
         /// </summary>
-        public Laptop() : this("Aspire", "Acer", 1000) { }
+        public Phone() : this("Galaxy S22", "Samsung", 1500) { }
+
         /// <summary>
-        /// метод перевода информации в строку
+        /// переопределенный метод перевода информации в строку
         /// </summary>
         /// <returns></returns>
-        public  override string ToString()
+        public override string ToString()
         {
-            return "Info about laptop: \nModel: " + this.Name+ "\nManufacturer: " + 
-                this.Manufacturer + "\nPrice: "+ this.Price + "\n==========================";
+            return "Info about phone: \nModel: " + this.Name + "\nManufacturer: " +
+                this.Manufacturer + "\nPrice: " + this.Price + "\n==========================";
         }
+        
+
     }
 }

@@ -30,6 +30,31 @@ namespace ConsoleApp1_Home_Work_laptop_
             //shop.ShowLaptops();
 
 
+            //Laptop[] lapArray = new Laptop[5];
+            //lapArray[0] = new Laptop("MacBook Pro", "Apple", 2000);
+            //lapArray[1] = new Laptop("MacBook Air", "Apple", 1000);
+            //lapArray[2] = new Laptop("Aspire", "Acer", 600);
+            //lapArray[3] = new Laptop("P600", "HP", 2500);
+            //lapArray[4] = new Laptop("ROG 6", "Asus", 5000);
+
+            //Shop shop = new Shop(lapArray);
+            //shop.ShowLaptops();
+            //shop[2] = new Laptop("MacBook Super Pro MAX", "Apple", 100000);
+            //shop.ShowLaptops();
+            //shop[2].ShowInfo();
+
+            //Phone b = new Phone();
+            //Console.WriteLine(b.ToString());
+
+
+            //Laptop a = new Laptop();
+            //Console.WriteLine(a.ToString()); 
+
+            //Shop<Phone> a = new Shop<Phone>();
+            //a.ShowItems();
+            //Shop<Laptop> b = new Shop<Laptop>();
+            //b.ShowItems();
+
             Laptop[] lapArray = new Laptop[5];
             lapArray[0] = new Laptop("MacBook Pro", "Apple", 2000);
             lapArray[1] = new Laptop("MacBook Air", "Apple", 1000);
@@ -37,11 +62,11 @@ namespace ConsoleApp1_Home_Work_laptop_
             lapArray[3] = new Laptop("P600", "HP", 2500);
             lapArray[4] = new Laptop("ROG 6", "Asus", 5000);
 
-            Shop shop = new Shop(lapArray);
-            shop.ShowLaptops();
-            shop[2] = new Laptop("MacBook Super Pro MAX", "Apple", 100000);
-            shop.ShowLaptops();
-            shop[2].ShowInfo();
+            Shop<Laptop> laptops = new Shop<Laptop>(lapArray);
+            laptops.ShowItems();
+
+            Phone a = new Phone();
+
         }
     }
 }

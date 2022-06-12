@@ -5,48 +5,67 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1_Home_Work_laptop_
-{
-    class Shop
+{ 
+    /// <summary>
+    /// Шаблонный класс магазина принимающий как телефоны так и ноутбуки
+    /// </summary>
+    /// <typeparam name="T">как парметр передается класс продукта (телефон или лэптоп)</typeparam>
+    class Shop<T> where T:class, new ()
+                  
     {
+        
         private string name;
-        private Laptop[] laptops;
-        public Shop(string name, int count)
+        private T[] items;
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="name">имя магазина</param>
+        /// <param name="count">количество товаров</param>
+        public Shop(string name, int count) 
         {
             this.name = name;
-            laptops = new Laptop[count];
-            for (int i = 0; i < laptops.Length; i++)
+            items = new T[count];
+            for (int i = 0; i < items.Length; i++)
             {
-                laptops[i] = new Laptop();
+                items[i] = new T();
             }
         }
-        public Laptop this[int index]
+        public T this[int index]
         {
             get
             {
-                if ((index>=0)&&(index<laptops.Length))
+                if ((index>=0)&&(index<items.Length))
                 {
-                    return laptops[index];
+                    return items[index];
                 }
                 else
                 {
-                    return laptops[0];
+                    return items[0];
                 }
             }
             set
             {
-                if ((index >= 0) && (index < laptops.Length))
+                if ((index >= 0) && (index < items.Length))
                 {
-                    laptops[index] = value;
+                    items[index] = value;
                 }
             }
         }
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
         public Shop() : this("Radio market", 5) { }
+
         public Shop(int count) :this("Radio market", count) { }
-        public Shop(Laptop [] array) :this("Radio market" , array.Length) 
+        /// <summary>
+        /// конструктор принимающий в парметр массив техники
+        /// </summary>
+        /// <param name="array">как параметр принимает массив продуктов (гаджеты)</param>
+        public Shop(T [] array) :this("Radio market" , array.Length) 
         {
             for (int i = 0; i < array.Length; i++)
             {
-                laptops[i] = array[i];
+                items[i] = array[i];
             }
         }
         public string Name
@@ -54,14 +73,17 @@ namespace ConsoleApp1_Home_Work_laptop_
             get { return name; }
             set { name = value; }
         }
-        public void ShowLaptops()
+        /// <summary>
+        /// вывод информация об магазине и товарах
+        /// </summary>
+        public void ShowItems()
         {
             Console.WriteLine("++++++++++++++++++++++++++");
             Console.WriteLine("Name of shop: "+this.Name);
-            Console.WriteLine("models of Laptops: \n");
-            for (int i = 0; i < laptops.Length; i++)
+            Console.WriteLine("models of gadjets: \n");
+            for (int i = 0; i < items.Length; i++)
             {
-                laptops[i].ShowInfo();
+                Console.WriteLine(items[i].ToString());
             }
         }
     }
